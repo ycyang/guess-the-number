@@ -24,7 +24,8 @@ a UserActor instance will be created for each successful websocket connection. I
    and send it out to the client through websocket.
 
 #### [GameBoard](app/actors/GameBoard.scala)
-a singleton GameBoard instance will be lazily created, it controls the game by
+a singleton GameBoard instance will be lazily created, it controls the game by  
+
 1. holding the magic number.
 2. keep track of connected users.
 3. on receiving `GuessMsg` from user, compare it to the magic number to produce hint.
