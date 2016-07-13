@@ -1,0 +1,51 @@
+@import play.api.mvc.RequestHeader
+
+@(uid: String)(implicit request: RequestHeader)
+
+<html>
+<head>
+    <title>Guess The Number</title>
+    <link rel='stylesheet'
+          href='@routes.Assets.at("lib/bootstrap/css/bootstrap.min.css")'>
+    <script type='text/javascript'
+            src='@routes.Assets.at("lib/jquery/jquery.min.js")'></script>
+    <script type='text/javascript'
+            src='@routes.Assets.at("javascripts/index.js")'></script>
+</head>
+<body data-ws-url="@routes.Application.ws().webSocketURL()">
+
+<div class="container ">
+    <div class="row">
+        <div class="col-xs-12">
+            <table id="board" class="table text-center">
+                <thead>
+                <tr>
+                    <th class="col-xs-3 text-center" >User</th>
+                    <th class="col-xs-3 text-center" >Guess</th>
+                    <th class="col-xs-3 text-center" >Hint</th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3 strong text-right ">
+            User @uid
+        </div>
+        <div class="col-xs-9">
+            <form id="msgform" class="form-horizontal" >
+                <div class="col-xs-8">
+                    <input id="msgtext" type="text"  class="form-control"
+                           placeholder="make a guess" />
+                </div>
+                <div class="col-xs-1">
+                    <button type="submit" class="btn btn-default ">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
